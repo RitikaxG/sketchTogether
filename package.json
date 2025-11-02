@@ -1,5 +1,5 @@
 {
-  "name": "sketchTogether",
+  "name": "sketch-together",
   "private": true,
   "scripts": {
     "build": "turbo run build",
