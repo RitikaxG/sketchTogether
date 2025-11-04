@@ -1,21 +1,21 @@
 {
-  "name": "@repo/types",
-  "version": "1.0.0",
-  "private":"true",
-  "description": "Shared type definitions for monorepo",
-  "license": "ISC",
-  "type": "commonjs",
-
-  "devDependencies": {
-    "@types/express": "^5.0.4",
-    "express": "^5.1.0",
-    "@repo/typescript-config":"workspace:*"
-  },
-   "types": "./src/index.d.ts", 
-   "exports":{
-    ".":"./src/index.d.ts"
-   },
-   "files": [
-    "src"
-   ]
+ "name": "@repo/types",
+ "version": "1.0.0",
+ "private": "true",
+ "description": "Shared type definitions for monorepo",
+ "license": "ISC",
+ "type": "commonjs",
+ "devDependencies": {
+  "@clerk/express": "^1.7.43",
+  "@repo/typescript-config": "workspace:*",
+  "@types/express": "^5.0.4",
+  "express": "^5.1.0"
+ },
+ "types": "./src/index.d.ts",
+ "exports": {
+  ".": "./src/index.d.ts"
+ },
+ "files": [
+  "src"
+ ]
 }

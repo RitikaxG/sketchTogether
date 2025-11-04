@@ -11,9 +11,10 @@
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
+    "@repo/clerk-backend": "workspace:*",
+    "@repo/types": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@repo/types":"workspace:*",
-    "@types/express": "^5.0.4",
+    "@repo/shared-secrets":"workspace:*",
     "@types/jsonwebtoken": "^9.0.10",
     "jsonwebtoken": "^9.0.2"
   },
@@ -22,7 +23,7 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "express": "^5.1.0",
+    "@clerk/express": "^1.7.43",
     "zod": "^4.1.12"
   }
 }

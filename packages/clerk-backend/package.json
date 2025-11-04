@@ -1,5 +1,5 @@
 {
-  "name": "ws-backend",
+  "name": "@repo/clerk-backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,19 +11,17 @@
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
-    "@repo/shared-secrets": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
-    "@types/jsonwebtoken": "^9.0.10",
-    "@types/ws": "^8.18.1"
+    "@repo/typescript-config":"workspace:*",
+    "@repo/shared-secrets":"workspace:*"
+  },
+  "exports":{
+   ".":"./dist/index.js" 
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "@clerk/backend": "^2.19.1",
-    "@clerk/express": "^1.7.43",
-    "jsonwebtoken": "^9.0.2",
-    "ws": "^8.18.3"
+    "@clerk/express": "^1.7.43"
   }
 }
