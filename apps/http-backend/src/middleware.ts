@@ -1,6 +1,7 @@
 import { Request,Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
-import { JWT_TOKEN } from "./config";
+import { JWT_TOKEN } from "./config.js";
+import {} from "@repo/types";
 
 export const authMiddleware = ( req: Request, res: Response, next : NextFunction ) => {
     try{

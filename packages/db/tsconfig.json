@@ -1,0 +1,17 @@
+{
+    "extends":"@repo/typescript-config/base.json",
+    "compilerOptions": {
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "allowSyntheticDefaultImports": true,
+        "module": "NodeNext",
+        "esModuleInterop": true,
+        "moduleResolution": "NodeNext",
+        "allowJs": true, 
+        "declaration": true,
+    },
+    "include": [
+        "src/**/*",
+    ],
+    
+}

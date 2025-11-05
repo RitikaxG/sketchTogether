@@ -4,16 +4,23 @@
  "private": "true",
  "description": "Shared type definitions for monorepo",
  "license": "ISC",
- "type": "commonjs",
+ "type": "module",
  "devDependencies": {
   "@clerk/express": "^1.7.43",
   "@repo/typescript-config": "workspace:*",
   "@types/express": "^5.0.4",
   "express": "^5.1.0"
  },
- "types": "./src/index.d.ts",
+ "scripts": {
+    "build": "tsc -b",
+    "start": "node dist/index.js",
+    "dev": "npm run build && npm run start",
+    "lint": "eslint . --ext .ts,.js",
+    "check-types": "tsc --noEmit"
+  },
+ "types": "./src/index.ts",
  "exports": {
-  ".": "./src/index.d.ts"
+  ".": "./src/index.ts"
  },
  "files": [
   "src"

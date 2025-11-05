@@ -2,7 +2,7 @@ import { WebSocketServer } from 'ws';
 import { verifyToken } from "@clerk/backend";
 import { CLERK_SECRET_KEY } from "@repo/shared-secrets/secrets"
 
-const wss = new WebSocketServer({ port: 8080 });
+const wss = new WebSocketServer({ port: 8081 });
 
 wss.on('connection', async function connection(ws, request) {
   const url = request.url;

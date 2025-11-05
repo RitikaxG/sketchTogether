@@ -3,9 +3,10 @@
   "ui": "tui",
   "tasks": {
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build","@repo/db#db:generate"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
+     
     },
     "lint": {
       "dependsOn": ["^lint"]
@@ -14,8 +15,19 @@
       "dependsOn": ["^check-types"]
     },
     "dev": {
+      "dependsOn": ["@repo/db#build","@repo/db#db:generate"],  
       "cache": false,
       "persistent": true
+    },
+    "db:generate": {
+      "cache": false
+    },
+    "db:migrate": {
+      "cache": false,
+      "persistent": true 
+    },
+      "db:deploy": {
+      "cache": false
     }
   }
 }

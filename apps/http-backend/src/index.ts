@@ -1,10 +1,10 @@
 import express from "express";
 import jwt from "jsonwebtoken";
-import { JWT_TOKEN } from "./config";
-import { authMiddleware } from "./middleware";
+import { JWT_TOKEN } from "./config.js";
+
 import { withClerk } from "@repo/clerk-backend";
 import { getAuth, requireAuth } from "@clerk/express";
-import { CLERK_SECRET_KEY } from "@repo/shared-secrets/secrets"
+import { prisma } from "@repo/db";
 
 const app = express()
 app.use(express.json()); // If not present, cannot destructure JSON data
@@ -47,7 +47,7 @@ app.post("/signin",(req,res) => {
     })
 })
 
-app.post("/create-room",requireAuth(),(req,res) => {
+app.post("/create-room", requireAuth(), async (req,res) => {
     try{
         const { userId } = getAuth(req);
         console.log(userId);
@@ -58,7 +58,14 @@ app.post("/create-room",requireAuth(),(req,res) => {
             })
         }
 
+        const newRoom = await prisma.room.create({
+            data:{
+                name : roomName
+            }
+        })
+
         res.status(200).json({
+            newRoom,
             message : "Room created"
         })
     }
