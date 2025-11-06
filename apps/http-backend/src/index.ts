@@ -16,40 +16,11 @@ app.get("/health",(req,res)=>{
     })
 })
 
-app.post("/signup",(req,res) => {
-    const { username, password } = req.body;
-    if(!username || !password){
-        res.status(403).send("Username and password required")
-    }
 
-    res.status(200).json({
-        message: "Successfully signed up"
-    })
-
-})
-
-app.post("/signin",(req,res) => {
-    const { username, password } = req.body;
-    if(!username || !password){
-        res.status(403).json({
-            message: "Username and password required"
-        })
-    }
-
-    const userId = 1;
-    const token = jwt.sign({
-        userId
-    },JWT_TOKEN);
-
-    res.status(200).json({
-        message : "Sucessfully signed in",
-        token
-    })
-})
-
-app.post("/create-room", requireAuth(), async (req,res) => {
+app.post("/create-room",requireAuth(), async (req,res) => {
     try{
-        const { userId } = getAuth(req);
+        
+        const  { userId }  = getAuth(req);
         console.log(userId);
         const { roomName } = req.body;
         if(!roomName){
